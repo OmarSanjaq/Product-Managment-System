@@ -47,7 +47,6 @@ create.onclick = function(){
         count:count.value,
         category:category.value.toLowerCase(),
     }
-
     if(title.value != '' 
     && price.value !=''
     && category.value !=''
@@ -69,7 +68,9 @@ create.onclick = function(){
             count.style.display='block';
         }
     clearInputs();
-    }    
+    }  else{
+        openPopup()
+    }  
     
     localStorage.setItem('product',JSON.stringify(dataProduct));
     console.log(newProject);
@@ -222,4 +223,10 @@ function searchAbout(value)
     document.getElementById('tbody').innerHTML = table;
 }
 
-//validation of clean  data
+let popup=document.getElementById('popup');
+function openPopup(){
+    popup.classList.add("open-popup");
+}
+function closePopup(){
+    popup.classList.remove("open-popup");
+}
